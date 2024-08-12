@@ -1,21 +1,30 @@
 import { Link } from "react-router-dom";
 import "../styling/Header.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function Header() {
   const [isShrunk, setShrunk] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShrunk(window.scrollY > 50);
-    };
+  const handleScroll = useCallback(() => {
+    setShrunk((prevIsShrunk) => {
+      const currentScrollY = window.scrollY;
+      if (!prevIsShrunk && currentScrollY > 50) {
+        return true;
+      } else if (prevIsShrunk && currentScrollY < 10) {
+        return false;
+      }
+      return prevIsShrunk;
+    });
+  }, []);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
+
   return (
     <header className={`header ${isShrunk ? "small" : ""}`}>
       <div className="header-container">

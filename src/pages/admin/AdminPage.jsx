@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import ProjectCard from "../components/ProjectCard";
-import "../styling/Portfolio.css";
+import ProjectCard from "../../components/ProjectCard";
+import "../../styling/Portfolio.css";
 
 function AdminPage() {
   const [projects, setProjects] = useState([]);

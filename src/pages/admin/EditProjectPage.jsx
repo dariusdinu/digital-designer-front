@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../styling/Buttons.css";
+import "../../styling/Buttons.css";
 import EditProjectForm from "./EditProjectForm";
 
 function EditProjectPage() {

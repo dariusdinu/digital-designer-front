@@ -1,6 +1,6 @@
-import "../styling/Buttons.css";
-import "../styling/EditProjectForm.css";
-import "../styling/ProjectPage.css";
+import "../../styling/Buttons.css";
+import "../../styling/EditProjectForm.css";
+import "../../styling/ProjectPage.css";
 function EditProjectForm({
   project,
   handleInputChange,
