@@ -1,0 +1,87 @@
+/* FONT SCALE */
+/*  */
+
+/*
+0 - 600px:        Phone
+600 - 900px:      Tablet portrait
+900 - 1200px:     Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :        Big Desktop
+*/
+
+/*
+breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+  1 em = 16px
+*/
+
+:root {
+  /* COLORS */
+  --text-color-hover: #aaa;
+  --text-color: #333;
+  --background-color: #eee;
+  --navbar-color: #333;
+
+  /* FONT */
+  --default-font-size: 1.6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: 62.5%;
+
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}

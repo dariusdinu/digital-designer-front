@@ -1,0 +1,19 @@
+.project-card {
+  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  height: 24rem;
+  width: 24rem;
+  transition: transform 0.3s ease-in;
+  margin: auto;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Slight scale up on hover */
+}
+
+.project-image {
+  width: 100%; /* Ensure the image covers the card */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove bottom space/gap */
+}

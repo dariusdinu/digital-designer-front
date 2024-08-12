@@ -1,0 +1,41 @@
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 5rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-links a {
+  color: #fff; /* White link color */
+  text-decoration: none; /* No underline */
+  margin: 0 10px; /* Spacing between links */
+  transition: all 0.3s;
+}
+
+.footer-links a:hover {
+  color: #bbb;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-icon {
+  font-size: 4.3rem;
+  letter-spacing: -0.5px;
+  font-family: "DM Serif Display", serif;
+}
+
+.logo-name {
+  font-family: "Urbanist", sans-serif;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+}

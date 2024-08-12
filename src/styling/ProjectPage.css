@@ -1,0 +1,26 @@
+.project-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split into two equal columns */
+  margin: 5rem;
+}
+
+.project-title {
+  font-family: "Urbanist", sans-serif;
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+
+.project-description,
+.project-client,
+.project-client-link {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #333;
+}
+
+.project-image-p {
+  width: 50rem;
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+}

@@ -1,0 +1,52 @@
+.contact-page {
+  max-height: 100vh;
+  padding: 20px;
+  margin-left: 5rem;
+  font-family: "Urbanist", sans-serif;
+  position: relative;
+}
+
+.contact-page h1 {
+  margin-bottom: 4rem;
+  font-size: 4.2rem;
+  font-weight: 300;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 1.5px solid black;
+  font-size: 1.4rem;
+  font-family: "Urbanist", sans-serif;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid black;
+}
+
+textarea {
+  font-family: "Urbanist", sans-serif;
+  resize: none;
+}

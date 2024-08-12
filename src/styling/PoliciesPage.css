@@ -1,0 +1,40 @@
+.page-title {
+  font-size: 3rem;
+  font-weight: 100;
+  margin-top: 5rem;
+}
+
+.policies-page {
+  padding: 4rem 5rem;
+  overflow-y: auto;
+}
+
+table {
+  margin-top: 5rem;
+}
+
+td ul,
+td ol {
+  margin-left: 1.5rem;
+}
+
+.policy-content td {
+  vertical-align: top;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  width: 30%;
+}
+
+.empty-row {
+  height: 3rem;
+}
+
+p,
+p + ul,
+p + ol {
+  font-size: 1.4rem;
+  font-weight: 300;
+}

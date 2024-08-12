@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top of other content */
+  transition: padding 0.3s; /* Smooth transition for padding change */
+  width: 100%; /* Ensures header is full width */
+}
+
+.header.small {
+  padding: 2rem 1rem; /* Reduced padding when scrolled */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 200rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.designer-name {
+  font-family: "DM Serif Display", serif;
+  color: var(--text-color);
+  font-weight: thin;
+  font-size: 4rem;
+  letter-spacing: -0.5px;
+}
+
+.header-link {
+  text-decoration: none;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 2rem;
+  transition: color 0.3s;
+}
+
+.main-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: var(--text-color-hover);
+}
