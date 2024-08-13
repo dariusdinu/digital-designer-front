@@ -41,7 +41,29 @@ The website includes an admin panel for managing projects, where new projects ca
 
 ### **Clone the Repositories:**
 
+Navigate to the server directory:
+
 ```bash
 git clone https://github.com/yourusername/mila-hayes-portfolio-server.git
 git clone https://github.com/yourusername/mila-hayes-portfolio-client.git
+```
+
+### **Backend Setup**
+
+Navigate to the server directory:
+
+```bash
+cd path/to/server/directory
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+npm run start:dev
+
+```bash
+npm run start:dev
 ```
