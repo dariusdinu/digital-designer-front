@@ -35,20 +35,17 @@ function AddProjectPage() {
     setIsLoading(true);
 
     try {
-      // First, upload the image to Digital Ocean and get the URL
-      const imageUrl = await uploadImageToDigitalOcean(project);
-
-      // Prepare project data with the image URL
+      // Step 1: Create the project without images
       const projectData = {
         title: project.title,
         description: project.description,
-        images: [imageUrl], // Use image URL instead of file
         clientSiteLink: project.clientSiteLink,
         isShown: project.isShown,
         category: project.category,
+        images: [],
       };
 
-      const response = await fetch("http://localhost:3000/projects", {
+      const createResponse = await fetch("http://localhost:3000/projects", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,12 +53,45 @@ function AddProjectPage() {
         body: JSON.stringify(projectData),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to add project");
+      if (!createResponse.ok) {
+        throw new Error("Failed to create project");
       }
 
-      const data = await response.json();
-      console.log("Project added successfully:", data);
+      const createdProject = await createResponse.json();
+      const projectId = createdProject._id;
+
+      console.log("Project created successfully:", createdProject);
+
+      // Step 2: Upload the image to Digital Ocean using the new project ID
+      if (project.images[0]) {
+        const imageUrl = await uploadImageToDigitalOcean(
+          project.images[0],
+          projectId
+        );
+
+        // Step 3: Update the project with the image URL
+        const updateData = {
+          images: [imageUrl],
+        };
+
+        const updateResponse = await fetch(
+          `http://localhost:3000/projects/${projectId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updateData),
+          }
+        );
+
+        const updatedProject = await updateResponse.json();
+        console.log(
+          "Project updated successfully with image URL:",
+          updatedProject
+        );
+      }
+
       navigate("/admin");
     } catch (error) {
       console.error("Error adding the project:", error);
@@ -71,13 +101,13 @@ function AddProjectPage() {
   };
 
   // Function to handle image upload to Digital Ocean
-  const uploadImageToDigitalOcean = async (project) => {
+  const uploadImageToDigitalOcean = async (file, projectId) => {
     const formData = new FormData();
-    formData.append("images", [project.images[0]]);
+    formData.append("images", file);
+
     const response = await fetch(
-      `http://localhost:3000/66ba055bf83e6c783d3b2868/images`,
+      `http://localhost:3000/projects/${projectId}/images`,
       {
-        // Endpoint for handling image upload
         method: "POST",
         body: formData,
       }

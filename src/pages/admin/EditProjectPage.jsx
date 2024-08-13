@@ -28,36 +28,76 @@ function EditProjectPage() {
     }));
   };
 
-  const handleUpdate = () => {
-    const updateData = {
-      title: project.title,
-      description: project.description,
-      images: [],
-      clientSiteLink: project.clientSiteLink,
-      isShown: project.isShown,
-      category: project.category,
-    };
+  const handleImageChange = (file) => {
+    setProject((prev) => ({
+      ...prev,
+      images: [file],
+    }));
+  };
 
-    console.log(updateData);
+  const uploadImageAndGetUrl = async (file, projectId) => {
+    const formData = new FormData();
+    formData.append("images", file);
 
-    fetch(`http://localhost:3000/projects/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Update successful:", data);
-        navigate("/admin"); // Redirect back to admin page after successful update
-      })
-      .catch((error) => console.error("Error updating the project:", error));
+    const response = await fetch(
+      `http://localhost:3000/projects/${projectId}/images`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Image upload failed with status: " + response.status);
+    }
+
+    const data = await response.json();
+    console.log("Uploaded Image Response:", data);
+
+    if (!data.images || data.images.length === 0) {
+      throw new Error("No images URL found in the response");
+    }
+
+    return data.images[1];
+  };
+
+  const handleUpdate = async () => {
+    try {
+      let imageUrl = project.images[0];
+
+      if (project.images[0] instanceof File) {
+        imageUrl = await uploadImageAndGetUrl(project.images[0], id);
+      }
+
+      const updateData = {
+        title: project.title,
+        description: project.description,
+        images: [imageUrl],
+        clientSiteLink: project.clientSiteLink,
+        isShown: project.isShown,
+        category: project.category,
+      };
+
+      const response = await fetch(`http://localhost:3000/projects/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      console.log("Update successful:", data);
+
+      setProject(data);
+      navigate("/admin");
+    } catch (error) {
+      console.error("Error updating the project:", error);
+    }
   };
 
   const handleDelete = () => {
@@ -70,7 +110,7 @@ function EditProjectPage() {
             throw new Error("Network response was not ok");
           }
           console.log("Delete successful");
-          navigate("/admin"); // Redirect back to the admin page after deletion
+          navigate("/admin");
         })
         .catch((error) => console.error("Error deleting the project:", error));
     }
@@ -84,6 +124,7 @@ function EditProjectPage() {
       handleInputChange={handleInputChange}
       handleUpdate={handleUpdate}
       handleDelete={handleDelete}
+      handleImageChange={handleImageChange}
     />
   );
 }

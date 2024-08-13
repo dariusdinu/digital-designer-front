@@ -1,6 +1,6 @@
 .project-page {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Split into two equal columns */
+  grid-template-columns: 1fr 1fr;
   margin: 5rem;
 }
 
@@ -21,8 +21,10 @@
 
 .project-image-p {
   width: 50rem;
+  height: 50rem;
   margin-bottom: 5rem;
   margin-left: 2rem;
+  object-fit: cover;
 }
 
 .project-info {

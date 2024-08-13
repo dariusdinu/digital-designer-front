@@ -3,7 +3,6 @@ import "../styling/ProjectCard.css";
 
 function ProjectCard({ project, adminMode = false }) {
   const navigate = useNavigate();
-
   const handleClick = () => {
     if (adminMode) {
       navigate(`/admin/edit/${project._id}`);
@@ -15,7 +14,7 @@ function ProjectCard({ project, adminMode = false }) {
   return (
     <div className="project-card" onClick={handleClick}>
       <img
-        src={project.imageUrl || "/test-image.jpg"}
+        src={project.images || "/test-image.jpg"}
         alt={`Project ${project.title}`}
         className="project-image"
       />

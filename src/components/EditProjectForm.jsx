@@ -6,14 +6,17 @@ import TextArea from "./TextArea";
 import "../styling/Buttons.css";
 import "../styling/EditProjectForm.css";
 import "../styling/ProjectPage.css";
+import Loading from "./Loading";
+import ImagePicker from "./ImagePicker";
 
 function EditProjectForm({
   project,
   handleInputChange,
   handleUpdate,
   handleDelete,
+  handleImageChange,
 }) {
-  if (!project) return <p>Loading project details...</p>;
+  if (!project) return <Loading />;
 
   const categoryOptions = [
     { code: "logo", name: "Logo Design" },
@@ -25,10 +28,9 @@ function EditProjectForm({
 
   return (
     <div className="project-page">
-      <img
-        src={project.imageUrl || "/test-image.jpg"}
-        alt={project.title}
-        className="project-image-p"
+      <ImagePicker
+        image={project.images[0]}
+        onImageChange={handleImageChange}
       />
       <section className="project-info">
         <Input
