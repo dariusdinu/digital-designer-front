@@ -30,8 +30,9 @@ function ContactPage() {
           id="message"
           htmlFor="message"
         />
-
-        <Button type="submit" text="CONTACT US" />
+        <div className="contact-button--container">
+          <Button type="submit" text="CONTACT US" />
+        </div>
       </form>
     </div>
   );

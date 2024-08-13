@@ -9,27 +9,24 @@
   overflow-y: auto;
 }
 
-table {
+.policy-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
   margin-top: 5rem;
-}
-
-td ul,
-td ol {
-  margin-left: 1.5rem;
-}
-
-.policy-content td {
-  vertical-align: top;
+  align-items: start;
 }
 
 .section-title {
   font-size: 2.2rem;
   font-weight: 400;
-  width: 30%;
+  margin: 1rem 0;
 }
 
-.empty-row {
-  height: 3rem;
+.subtitle {
+  text-transform: uppercase;
+  margin: 1rem 0;
 }
 
 p,
@@ -37,4 +34,9 @@ p + ul,
 p + ol {
   font-size: 1.4rem;
   font-weight: 300;
+}
+
+ul,
+ol {
+  margin-left: 2rem;
 }

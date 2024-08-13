@@ -38,13 +38,6 @@ function AddProjectForm({
           onChange={handleInputChange}
           placeholder="Enter project title"
         />
-        <TextArea
-          label="Description"
-          name="description"
-          value={project.description}
-          onChange={handleInputChange}
-          placeholder="Project Description"
-        />
         <Input
           label="Client Website"
           id="clientSiteLink"
@@ -59,6 +52,13 @@ function AddProjectForm({
           name="category"
           value={project.category}
           onChange={handleInputChange}
+        />
+        <TextArea
+          label="Description"
+          name="description"
+          value={project.description}
+          onChange={handleInputChange}
+          placeholder="Project Description"
         />
         <Switch
           handleInputChange={handleInputChange}

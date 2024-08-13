@@ -24,13 +24,12 @@ function ProjectPage() {
   return (
     <div className="project-page">
       <img
-        src="/test-image.jpg"
+        src={project.images}
         alt={project.title}
         className="project-image-p"
       />
       <section className="project-info">
         <h1 className="project-title">{project.title}</h1>
-        {/* <img src={project.imageUrl} alt={project.title} /> */}
         <p className="project-description">{project.description}</p>
         <span className="project-client"> Client - </span>
         <a href={project.clientSiteLink} className="project-client-link">
