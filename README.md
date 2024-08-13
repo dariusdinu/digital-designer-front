@@ -62,8 +62,39 @@ Install dependencies:
 npm install
 ```
 
-npm run start:dev
+Create a .env file with the following content:
+
+```bash
+PORT=3000
+MONGO_URI=mongodb://localhost:x/your-cluster
+SPACES_ACCESS_KEY=your_digitalocean_access_key
+SPACES_SECRET_KEY=your_digitalocean_secret_key
+ORIGIN_ENDPOINT=https://your-space-name.digitaloceanspaces.com
+BUCKET_NAME=your-space-name
+```
+
+Start the development server:
 
 ```bash
 npm run start:dev
+```
+
+### **Backend Setup**
+
+Navigate to the client directory:
+
+```bash
+cd path/to/client/directory
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
 ```
