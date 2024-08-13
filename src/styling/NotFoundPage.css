@@ -12,13 +12,13 @@
   font-size: 8rem;
   margin: 0;
   font-weight: 200;
-  color: black;
+  color: var(--primary-black);
 }
 
 .not-found-container p {
-  font-size: 1.8rem;
+  font-size: var(--font-size-md);
   margin: 1rem 0;
-  color: black;
+  color: var(--primary-black);
 }
 
 .btn-container {

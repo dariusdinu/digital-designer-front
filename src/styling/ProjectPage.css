@@ -6,7 +6,7 @@
 
 .project-title {
   font-family: "Urbanist", sans-serif;
-  font-size: 4rem;
+  font-size: var(--font-size-xxl);
   font-weight: 300;
   margin-bottom: 4rem;
 }
@@ -14,9 +14,9 @@
 .project-description,
 .project-client,
 .project-client-link {
-  font-size: 1.6rem;
+  font-size: var(--font-size-sm);
   font-weight: 300;
-  color: #333;
+  color: var(--primary-black);
 }
 
 .project-image-p {

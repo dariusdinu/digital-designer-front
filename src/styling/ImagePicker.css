@@ -3,12 +3,11 @@
   height: 50rem;
   background-size: cover;
   background-position: center;
-  border: 2px dashed #ccc;
   cursor: pointer;
   margin-bottom: 1rem;
   margin-right: 2rem;
 }
 
 .image-picker:hover {
-  border-color: black;
+  border-color: var(--hover-black);
 }

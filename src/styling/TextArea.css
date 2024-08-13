@@ -1,16 +1,17 @@
 .text-area label {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 1.4rem;
+  font-size: var(--font-size-xs);
   font-weight: 200;
+  color: var(--secondary-black);
 }
 
 textarea {
   width: 100%;
   padding: 0.8rem 0;
   border: none;
-  border-bottom: 1.5px solid black;
-  font-size: 1.4rem;
+  border-bottom: 1.5px solid var(--primary-black);
+  font-size: var(--font-size-xs);
   font-family: "Urbanist", sans-serif;
   margin-bottom: 1.5rem;
 }
@@ -18,5 +19,5 @@ textarea {
 textarea:focus {
   border: none;
   outline: none;
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid var(--primary-black);
 }

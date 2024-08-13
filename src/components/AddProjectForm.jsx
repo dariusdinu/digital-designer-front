@@ -16,10 +16,11 @@ function AddProjectForm({
         project={project}
         handleInputChange={handleInputChange}
         handleImageChange={handleImageChange}
-      />
-      <div className="buttons-container">
-        <Button text="Add project" handler={handleAdd} />
-      </div>
+      >
+        <div className="buttons-container">
+          <Button text="Add project" handler={handleAdd} />
+        </div>
+      </ProjectForm>
     </div>
   );
 }

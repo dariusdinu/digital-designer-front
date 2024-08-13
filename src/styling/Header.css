@@ -2,17 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--primary-white);
   padding: 5rem;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Ensure it stays on top of other content */
-  transition: padding 0.3s; /* Smooth transition for padding change */
-  width: 100%; /* Ensures header is full width */
+  z-index: 1000;
+  transition: padding 0.3s;
+  width: 100%;
 }
 
 .header.small {
-  padding: 2rem 1rem; /* Reduced padding when scrolled */
+  padding: 2rem 1rem;
 }
 
 .header-container {
@@ -26,25 +26,25 @@
 
 .designer-name {
   font-family: "DM Serif Display", serif;
-  color: var(--text-color);
+  color: var(--primary-black);
   font-weight: thin;
-  font-size: 4rem;
+  font-size: var(--font-size-xxl);
   letter-spacing: -0.5px;
 }
 
 .header-link {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--primary-black);
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: var(--font-size-md);
   transition: color 0.3s;
 }
 
 .main-link {
-  color: var(--text-color);
+  color: var(--primary-black);
   text-decoration: none;
 }
 
 .header-link:hover {
-  color: var(--text-color-hover);
+  color: var(--hover-black);
 }

@@ -1,5 +1,5 @@
 .page-title {
-  font-size: 3rem;
+  font-size: var(--font-size-xl);
   font-weight: 100;
   margin-top: 5rem;
 }
@@ -7,6 +7,7 @@
 .policies-page {
   padding: 4rem 5rem;
   overflow-y: auto;
+  color: var(--primary-black);
 }
 
 .policy-content {
@@ -19,7 +20,7 @@
 }
 
 .section-title {
-  font-size: 2.2rem;
+  font-size: var(--font-size-lg);
   font-weight: 400;
   margin: 1rem 0;
 }
@@ -32,7 +33,7 @@
 p,
 p + ul,
 p + ol {
-  font-size: 1.4rem;
+  font-size: var(--font-size-xs);
   font-weight: 300;
 }
 

@@ -2,8 +2,8 @@
 /*  */
 
 /*
-0 - 600px:        Phone
-600 - 900px:      Tablet portrait
+0 - 768px:        Phone
+768 - 900px:      Tablet portrait
 900 - 1200px:     Tablet landscape
 [1200 - 1800] is where our normal styles apply
 1800px + :        Big Desktop
@@ -21,13 +21,21 @@ breakpoint argument choices:
 
 :root {
   /* COLORS */
-  --text-color-hover: #aaa;
-  --text-color: #333;
-  --background-color: #eee;
-  --navbar-color: #333;
+  --primary-black: #242325;
+  --primary-white: #fffffa;
+  --primary-red: #ef233c;
+
+  --secondary-black: #929192;
+
+  --hover-black: #7c7b7c;
 
   /* FONT */
-  --default-font-size: 1.6rem;
+  --font-size-xxl: 4rem;
+  --font-size-xl: 3rem;
+  --font-size-lg: 2.4rem;
+  --font-size-md: 2rem;
+  --font-size-sm: 1.6rem;
+  --font-size-xs: 1.4rem;
 }
 
 * {
@@ -49,8 +57,15 @@ html {
   font-size: 62.5%;
 
   overflow-y: auto;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: var(--primary-white);
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 75%; /* equivalent to 12px (75% of 16px) */
+  }
 }
 
 @media (max-width: 1200px) {
@@ -95,15 +110,9 @@ html {
   }
 }
 
-@media (min-width: 1800px) {
-  html {
-    font-size: 75%; /* equivalent to 12px (75% of 16px) */
-  }
-}
-
 @media (max-width: 768px) {
   html {
-    font-size: 45%; /* Decrease font size slightly more for smaller screens */
+    font-size: 45%;
   }
 
   .policy-content {
@@ -111,8 +120,8 @@ html {
   }
 
   .footer-container {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center-align the content */
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer {
@@ -173,7 +182,7 @@ html {
   }
 
   .nav-item {
-    font-size: 1.4rem;
+    font-size: var(--font-size-xs);
     margin: 0.5rem 0;
     padding: 0.5rem 1rem;
     width: 100%;
@@ -185,16 +194,16 @@ html {
   }
 
   .nav-toggle {
-    display: block; /* Show the toggle button on smaller screens */
+    display: block;
   }
 
   .nav-bar--container {
-    display: none; /* Hide the container initially on smaller screens */
+    display: none;
   }
 
   .nav-bar--container.open {
-    display: block; /* Show the container when 'open' */
-    padding: 1rem 0; /* Adjust padding for small screens */
+    display: block;
+    padding: 1rem 0;
   }
 
   .nav-items {

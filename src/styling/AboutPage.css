@@ -7,19 +7,19 @@
 }
 
 .about-page p {
-  font-size: 1.4rem;
+  font-size: var(--font-size-xs);
   line-height: 1.6;
-  color: #666;
+  color: var(--primary-black);
   margin-bottom: 2rem;
 }
 
 .about-page a {
-  color: #666;
+  color: var(--primary-black);
   transition: all 0.3s;
 }
 .about-page a:hover {
   text-decoration: underline;
-  color: #000;
+  color: var(--hover-black);
 }
 
 .logo-about {
@@ -27,4 +27,5 @@
   font-size: 9.6rem;
   text-align: center;
   width: 100%;
+  color: var(--primary-black);
 }
