@@ -18,11 +18,11 @@
   max-width: 40%;
 }
 
-.form-group {
+.input {
   margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.input label {
   display: block;
   margin-bottom: 0.5rem;
   font-size: 1.4rem;

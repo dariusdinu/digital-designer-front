@@ -1,0 +1,13 @@
+.image-picker {
+  width: 50rem;
+  height: 50rem;
+  background-size: cover;
+  background-position: center;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.image-picker:hover {
+  border-color: black;
+}

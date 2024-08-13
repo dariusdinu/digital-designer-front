@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styling/ProjectPage.css";
+import Loading from "../components/Loading";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function ProjectPage() {
       .catch((error) => console.error("Error loading the project:", error));
   }, [id]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   if (!project) return <div>No project found!</div>;
 
   return (

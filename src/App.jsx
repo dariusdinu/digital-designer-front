@@ -6,7 +6,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import Header from "./components/Header";
-import Portfolio from "./components/Portfolio"; // NavBar is now integrated within Portfolio
 import Footer from "./components/Footer";
 import PoliciesPage from "./pages/PoliciesPage";
 import ContactPage from "./pages/ContactPage";
@@ -15,6 +14,8 @@ import ProjectPage from "./pages/ProjectPage";
 import AdminPage from "./pages/admin/AdminPage";
 import EditProjectPage from "./pages/admin/EditProjectPage";
 import AddProjectPage from "./pages/admin/AddProjectPage";
+import PortfolioPage from "./pages/PortfolioPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function AppWrapper() {
   return (
@@ -41,7 +42,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={showPortfolio ? <Portfolio /> : null} />
+        <Route path="/" element={showPortfolio ? <PortfolioPage /> : null} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/policies" element={<PoliciesPage />} />
         <Route path="/contact" element={<ContactPage />} />
@@ -51,6 +52,8 @@ function App() {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/admin/add" element={<AddProjectPage />} />
         <Route path="/admin/edit/:id" element={<EditProjectPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

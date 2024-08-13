@@ -8,9 +8,9 @@
   transition: all 0.3s;
   font-weight: 300;
   font-family: "Urbanist", sans-serif;
-  margin-bottom: 5rem;
-  width: 50%;
+  width: 100%;
   font-size: 1.4rem;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -28,12 +28,26 @@
   transition: all 0.3s;
   font-weight: 300;
   font-family: "Urbanist", sans-serif;
-  margin-bottom: 5rem;
-  width: 50%;
+  width: 100%;
   font-size: 1.4rem;
 }
 
 .delete-button:hover {
   background-color: red;
   color: #ddd;
+}
+
+.add-button--container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.button-center-container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0 3rem 0;
 }

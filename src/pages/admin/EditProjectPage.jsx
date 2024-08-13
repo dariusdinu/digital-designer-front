@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../../styling/Buttons.css";
-import EditProjectForm from "./EditProjectForm";
+import EditProjectForm from "../../components/EditProjectForm";
+import Loading from "../../components/Loading";
 
 function EditProjectPage() {
   const { id } = useParams();
@@ -36,6 +37,8 @@ function EditProjectPage() {
       isShown: project.isShown,
       category: project.category,
     };
+
+    console.log(updateData);
 
     fetch(`http://localhost:3000/projects/${id}`, {
       method: "PUT",
@@ -73,7 +76,7 @@ function EditProjectPage() {
     }
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <EditProjectForm

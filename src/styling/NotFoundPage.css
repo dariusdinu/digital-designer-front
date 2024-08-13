@@ -1,0 +1,26 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Urbanist", sans-serif;
+  margin-top: 5rem;
+}
+
+.not-found-container h1 {
+  font-size: 8rem;
+  margin: 0;
+  font-weight: 200;
+  color: black;
+}
+
+.not-found-container p {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  color: black;
+}
+
+.btn-container {
+  margin-top: 5rem;
+}

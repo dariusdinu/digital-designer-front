@@ -1,0 +1,76 @@
+.custom-select-container {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.custom-select-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+.dropdown {
+  width: 100%;
+  border-bottom: 1.5px solid black;
+  cursor: pointer;
+  position: relative;
+  font-family: "Urbanist", sans-serif;
+}
+
+.dropdown-toggle {
+  padding: 0.8rem 0;
+  font-size: 1.4rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  vertical-align: middle;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.arrow.down {
+  border-top: 5px solid black;
+}
+
+.arrow.up {
+  border-bottom: 5px solid black;
+}
+
+.dropdown-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 10;
+  max-height: 20rem; /* Adjust the height as needed */
+  overflow-y: auto; /* Add scroll for long lists */
+}
+
+.dropdown-option {
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-option:hover {
+  background-color: black;
+  color: white;
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}

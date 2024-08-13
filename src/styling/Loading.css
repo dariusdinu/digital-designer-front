@@ -1,0 +1,32 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.spinner {
+  width: 4rem;
+  height: 4rem;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  border-top-color: black;
+  animation: spin 0.3s linear infinite;
+  margin: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+p {
+  font-size: 2rem;
+  font-family: "Urbanist", sans-serif;
+  color: black;
+  margin: 0;
+}

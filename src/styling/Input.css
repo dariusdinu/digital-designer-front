@@ -1,0 +1,26 @@
+.input {
+  margin-bottom: 1.5rem;
+}
+
+.input label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 1.5px solid black;
+  font-size: 1.4rem;
+  font-family: "Urbanist", sans-serif;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid black;
+}

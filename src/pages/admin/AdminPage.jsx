@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import ProjectCard from "../../components/ProjectCard";
 import "../../styling/Portfolio.css";
+import "../../styling/Buttons.css";
+import Portfolio from "../../components/Portfolio";
+import Loading from "../../components/Loading";
+import { Link } from "react-router-dom";
 
 function AdminPage() {
   const [projects, setProjects] = useState([]);
@@ -25,15 +28,19 @@ function AdminPage() {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
   if (error) return <p>Error fetching projects: {error}</p>;
 
   return (
-    <div className="portfolio">
-      {projects.map((project) => (
-        <ProjectCard key={project._id} project={project} adminMode={true} />
-      ))}
-    </div>
+    <>
+      <div className="button-center-container">
+        <Link to="/admin/add" className="button">
+          + Add Project
+        </Link>
+      </div>
+
+      <Portfolio projects={projects} adminMode={true} />
+    </>
   );
 }
 
