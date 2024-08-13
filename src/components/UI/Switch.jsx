@@ -1,4 +1,4 @@
-import "../styling/Switch.css";
+import "./Switch.css";
 
 function Switch({ handleInputChange, text, checked }) {
   return (

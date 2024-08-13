@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "../styling/NotFoundPage.css";
-import "../styling/Buttons.css";
+import "./NotFoundPage.css";
+import "../../components/UI/Button.css";
 
 function NotFoundPage() {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../styling/ProjectPage.css";
-import Loading from "../components/Loading";
+import "./ProjectPage.css";
+import Loading from "../../components/UI/Loading";
 
 function ProjectPage() {
   const { id } = useParams();

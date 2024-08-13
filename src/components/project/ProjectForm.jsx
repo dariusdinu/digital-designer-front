@@ -1,8 +1,8 @@
-import Input from "./Input";
-import Select from "./Select";
-import Switch from "./Switch";
-import TextArea from "./TextArea";
-import ImagePicker from "./ImagePicker";
+import Input from "../UI/Input";
+import Select from "../UI/Select";
+import Switch from "../UI/Switch";
+import TextArea from "../UI/TextArea";
+import ImagePicker from "../UI/ImagePicker";
 
 function ProjectForm({
   project,

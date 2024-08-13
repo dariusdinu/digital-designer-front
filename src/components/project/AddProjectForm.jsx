@@ -1,7 +1,7 @@
-import Button from "./Button";
-import "../styling/Buttons.css";
-import "../styling/EditProjectForm.css";
-import "../styling/ProjectPage.css";
+import "../UI/Button.css";
+import "./EditProjectForm.css";
+import "../../pages/Project/ProjectPage.css";
+import Button from "../UI/Button";
 import ProjectForm from "./ProjectForm";
 
 function AddProjectForm({

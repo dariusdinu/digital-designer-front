@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styling/Buttons.css";
-import AddProjectForm from "../../components/AddProjectForm";
-import Loading from "../../components/Loading";
+import "../../components/UI/Button.css";
+import Loading from "../../components/UI/Loading";
+import AddProjectForm from "../../components/project/AddProjectForm";
 
 function AddProjectPage() {
   const navigate = useNavigate();

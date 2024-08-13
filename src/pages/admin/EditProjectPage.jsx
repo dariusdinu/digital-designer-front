@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../../styling/Buttons.css";
-import EditProjectForm from "../../components/EditProjectForm";
-import Loading from "../../components/Loading";
+import "../../components/UI/Button.css";
+import Loading from "../../components/UI/Loading";
+import EditProjectForm from "../../components/project/EditProjectForm";
 
 function EditProjectPage() {
   const { id } = useParams();

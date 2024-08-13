@@ -1,8 +1,8 @@
-import "../styling/ContactPage.css";
-import "../styling/Buttons.css";
-import Button from "../components/Button";
-import Input from "../components/Input";
-import TextArea from "../components/TextArea";
+import "./ContactPage.css";
+import "../../components/UI/Button.css";
+import Input from "../../components/UI/Input";
+import TextArea from "../../components/UI/TextArea";
+import Button from "../../components/UI/Button";
 
 function ContactPage() {
   return (

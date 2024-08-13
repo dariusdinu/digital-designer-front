@@ -5,17 +5,17 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PoliciesPage from "./pages/PoliciesPage";
-import ContactPage from "./pages/ContactPage";
-import AboutPage from "./pages/AboutPage";
-import ProjectPage from "./pages/ProjectPage";
+import PortfolioPage from "./pages/Portfolio/PortfolioPage";
+import AboutPage from "./pages/About/AboutPage";
+import PoliciesPage from "./pages/Policies/PoliciesPage";
+import ContactPage from "./pages/Contact/ContactPage";
+import ProjectPage from "./pages/Project/ProjectPage";
+import AddProjectPage from "./pages/admin/AddProjectPage";
 import AdminPage from "./pages/admin/AdminPage";
 import EditProjectPage from "./pages/admin/EditProjectPage";
-import AddProjectPage from "./pages/admin/AddProjectPage";
-import PortfolioPage from "./pages/PortfolioPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 function AppWrapper() {
   return (

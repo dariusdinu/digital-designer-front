@@ -1,4 +1,4 @@
-import "../styling/Buttons.css";
+import "./Button.css";
 
 function Button({ type, isDelete = false, text, handler }) {
   return (

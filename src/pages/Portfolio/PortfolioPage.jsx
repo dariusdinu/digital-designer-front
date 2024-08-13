@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import "../styling/Portfolio.css";
-import NavBar from "../components/NavBar";
-import Portfolio from "../components/Portfolio";
-import Loading from "../components/Loading";
+import "../../components/project/Portfolio.css";
+import Loading from "../../components/UI/Loading";
+import NavBar from "../../components/layout/NavBar";
+import Portfolio from "../../components/project/Portfolio";
 
 function PortfolioPage() {
   const [allProjects, setAllProjects] = useState([]);

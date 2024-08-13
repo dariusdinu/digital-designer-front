@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styling/NavBar.css";
+import "./NavBar.css";
 
 function NavBar({ onSelectCategory }) {
   const [isOpen, setIsOpen] = useState(false); // State to control visibility of NavBar items

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../styling/ProjectCard.css";
+import "./ProjectCard.css";
 
 function ProjectCard({ project, adminMode = false }) {
   const navigate = useNavigate();

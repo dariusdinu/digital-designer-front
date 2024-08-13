@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "../styling/ImagePicker.css";
+import "./ImagePicker.css";
 
 function ImagePicker({ image, onImageChange }) {
   const inputRef = useRef();

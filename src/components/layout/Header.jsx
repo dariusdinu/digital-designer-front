@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../styling/Header.css";
+import "./Header.css";
 import { useCallback, useEffect, useState } from "react";
 
 function Header() {

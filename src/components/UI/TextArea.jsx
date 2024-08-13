@@ -1,4 +1,4 @@
-import "../styling/TextArea.css";
+import "./TextArea.css";
 
 function TextArea({
   label,

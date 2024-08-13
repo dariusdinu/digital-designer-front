@@ -1,4 +1,4 @@
-import "../styling/Input.css";
+import "./Input.css";
 
 function Input({
   label,

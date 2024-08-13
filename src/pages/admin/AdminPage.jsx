@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "../../styling/Portfolio.css";
-import "../../styling/Buttons.css";
-import Portfolio from "../../components/Portfolio";
-import Loading from "../../components/Loading";
+import "../../components/project/Portfolio.css";
+import "../../components/UI/Button.css";
 import { Link } from "react-router-dom";
+import Loading from "../../components/UI/Loading";
+import Portfolio from "../../components/project/Portfolio";
 
 function AdminPage() {
   const [projects, setProjects] = useState([]);
