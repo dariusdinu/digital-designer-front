@@ -57,8 +57,8 @@
   background-color: var(--primary-white);
   border: 1px solid var(--primary-black);
   z-index: 10;
-  max-height: 20rem; /* Adjust the height as needed */
-  overflow-y: auto; /* Add scroll for long lists */
+  max-height: 20rem;
+  overflow-y: auto;
 }
 
 .dropdown-option {
@@ -77,5 +77,5 @@
 }
 
 .select-error {
-  border-bottom: 1.5px solid red;
+  border-bottom: 1.5px solid var(--primary-red);
 }

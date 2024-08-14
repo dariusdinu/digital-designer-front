@@ -37,10 +37,10 @@ input:focus {
 
 .input-error input,
 .input-error textarea {
-  border-bottom: 1.5px solid red;
+  border-bottom: 1.5px solid var(--primary-red);
 }
 
 .error-message {
-  color: red;
+  color: var(--primary-red);
   font-size: 0.9rem;
 }

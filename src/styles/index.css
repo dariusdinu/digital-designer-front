@@ -154,10 +154,6 @@ html {
     align-items: center;
   }
 
-  .footer {
-    padding: rem; /* Reduce padding */
-  }
-
   .about-page {
     padding: 3rem 5rem;
     font-family: "Urbanist", sans-serif;

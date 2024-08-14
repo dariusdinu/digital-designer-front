@@ -1,4 +1,4 @@
-import "./PoliciesPage.css"; // Assume we create some basic styles
+import "./PoliciesPage.css";
 
 function PoliciesPage() {
   return (
