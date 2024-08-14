@@ -4,6 +4,7 @@ import "../../components/UI/Button.css";
 import { Link } from "react-router-dom";
 import Loading from "../../components/UI/Loading";
 import Portfolio from "../../components/project/Portfolio";
+import Error from "../../components/UI/Error";
 
 function AdminPage() {
   const [projects, setProjects] = useState([]);
@@ -29,7 +30,8 @@ function AdminPage() {
   }, []);
 
   if (isLoading) return <Loading />;
-  if (error) return <p>Error fetching projects: {error}</p>;
+  if (error)
+    return <Error message="Error: Cannot get projects from the database" />;
 
   return (
     <>

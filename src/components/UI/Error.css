@@ -1,0 +1,8 @@
+.error-container {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.error-container p {
+  font-size: var(--font-size-lg);
+}

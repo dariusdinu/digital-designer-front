@@ -66,6 +66,22 @@ html {
   html {
     font-size: 75%; /* equivalent to 12px (75% of 16px) */
   }
+
+  .buttons-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 1800px) {
+  .buttons-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -87,6 +103,13 @@ html {
     height: 20rem;
     width: 20rem;
   }
+
+  .buttons-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -107,6 +130,13 @@ html {
   .project-card img {
     height: 25rem;
     width: 25rem;
+  }
+
+  .buttons-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
   }
 }
 
@@ -215,6 +245,13 @@ html {
   .nav-item {
     padding: 10px;
     text-align: center;
+  }
+
+  .buttons-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
   }
 }
 

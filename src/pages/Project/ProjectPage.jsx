@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProjectPage.css";
 import Loading from "../../components/UI/Loading";
+import Error from "../../components/UI/Error";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ function ProjectPage() {
   }, [id]);
 
   if (isLoading) return <Loading />;
-  if (!project) return <div>No project found!</div>;
+  if (!project) return <Error message="Error: no project found" />;
 
   return (
     <div className="project-page">

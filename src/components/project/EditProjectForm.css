@@ -11,6 +11,7 @@
 }
 
 .buttons-container {
+  background-color: red;
   margin-top: 5rem;
   display: flex;
   flex-direction: row;

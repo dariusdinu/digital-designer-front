@@ -42,6 +42,7 @@ function App() {
   return (
     <>
       <Routes>
+        {/* GENERAL */}
         <Route path="/" element={showPortfolio ? <PortfolioPage /> : null} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/policies" element={<PoliciesPage />} />
@@ -53,6 +54,7 @@ function App() {
         <Route path="/admin/add" element={<AddProjectPage />} />
         <Route path="/admin/edit/:id" element={<EditProjectPage />} />
 
+        {/* NOT FOUND */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

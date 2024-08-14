@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Select.css";
 
-function Select({ options, value, name, onChange, label }) {
+function Select({ options, value, name, onChange, label, hasError }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(value || "");
 
@@ -14,9 +14,9 @@ function Select({ options, value, name, onChange, label }) {
   };
 
   return (
-    <div className="custom-select-container">
+    <div className="select-container">
       <label>{label}</label>
-      <div className="dropdown">
+      <div className={`dropdown ${hasError ? "select-error" : ""}`}>
         <div className="dropdown-toggle" onClick={toggleDropdown}>
           {options.find((option) => option.code === selectedOption)?.name ||
             "Select an option"}

@@ -1,14 +1,24 @@
-import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../../components/UI/Button.css";
 import Loading from "../../components/UI/Loading";
 import EditProjectForm from "../../components/project/EditProjectForm";
+import useProjectForm from "../../hooks/useProjectForm";
+import { useEffect } from "react";
+import { uploadImageToDigitalOcean } from "../../utils/uploadImage";
 
 function EditProjectPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [project, setProject] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const {
+    project,
+    setProject,
+    isLoading,
+    setIsLoading,
+    handleInputChange,
+    handleImageChange,
+    validateForm,
+    errors,
+  } = useProjectForm(null);
 
   useEffect(() => {
     fetch(`http://localhost:3000/projects/${id}`)
@@ -18,55 +28,20 @@ function EditProjectPage() {
         setIsLoading(false);
       })
       .catch((error) => console.error("Error loading the project:", error));
-  }, [id]);
+  }, [id, setProject, setIsLoading]);
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setProject((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+  const handleUpdate = async (e) => {
+    e.preventDefault();
 
-  const handleImageChange = (file) => {
-    setProject((prev) => ({
-      ...prev,
-      images: [file],
-    }));
-  };
-
-  const uploadImageAndGetUrl = async (file, projectId) => {
-    const formData = new FormData();
-    formData.append("images", file);
-
-    const response = await fetch(
-      `http://localhost:3000/projects/${projectId}/images`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Image upload failed with status: " + response.status);
+    if (!validateForm()) {
+      return;
     }
 
-    const data = await response.json();
-    console.log("Uploaded Image Response:", data);
-
-    if (!data.images || data.images.length === 0) {
-      throw new Error("No images URL found in the response");
-    }
-
-    return data.images[1];
-  };
-
-  const handleUpdate = async () => {
     try {
       let imageUrl = project.images[0];
 
       if (project.images[0] instanceof File) {
-        imageUrl = await uploadImageAndGetUrl(project.images[0], id);
+        imageUrl = await uploadImageToDigitalOcean(project.images[0], id);
       }
 
       const updateData = {
@@ -90,10 +65,6 @@ function EditProjectPage() {
         throw new Error("Network response was not ok");
       }
 
-      const data = await response.json();
-      console.log("Update successful:", data);
-
-      setProject(data);
       navigate("/admin");
     } catch (error) {
       console.error("Error updating the project:", error);
@@ -109,14 +80,13 @@ function EditProjectPage() {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
-          console.log("Delete successful");
           navigate("/admin");
         })
         .catch((error) => console.error("Error deleting the project:", error));
     }
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading || !project) return <Loading />;
 
   return (
     <EditProjectForm
@@ -125,6 +95,7 @@ function EditProjectPage() {
       handleUpdate={handleUpdate}
       handleDelete={handleDelete}
       handleImageChange={handleImageChange}
+      errors={errors}
     />
   );
 }

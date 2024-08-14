@@ -1,12 +1,21 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../components/UI/Button.css";
 import Loading from "../../components/UI/Loading";
 import AddProjectForm from "../../components/project/AddProjectForm";
+import useProjectForm from "../../hooks/useProjectForm";
+import { uploadImageToDigitalOcean } from "../../utils/uploadImage";
 
 function AddProjectPage() {
   const navigate = useNavigate();
-  const [project, setProject] = useState({
+  const {
+    project,
+    isLoading,
+    setIsLoading,
+    handleInputChange,
+    handleImageChange,
+    validateForm,
+    errors,
+  } = useProjectForm({
     title: "",
     description: "",
     images: [],
@@ -14,28 +23,17 @@ function AddProjectPage() {
     isShown: false,
     category: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setProject((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+  const handleAdd = async (e) => {
+    e.preventDefault();
 
-  const handleImageChange = (file) => {
-    setProject((prev) => ({
-      ...prev,
-      images: [file], // Store file object temporarily
-    }));
-  };
+    if (!validateForm()) {
+      return;
+    }
 
-  const handleAdd = async () => {
     setIsLoading(true);
 
     try {
-      // Step 1: Create the project without images
       const projectData = {
         title: project.title,
         description: project.description,
@@ -60,36 +58,23 @@ function AddProjectPage() {
       const createdProject = await createResponse.json();
       const projectId = createdProject._id;
 
-      console.log("Project created successfully:", createdProject);
-
-      // Step 2: Upload the image to Digital Ocean using the new project ID
       if (project.images[0]) {
         const imageUrl = await uploadImageToDigitalOcean(
           project.images[0],
           projectId
         );
 
-        // Step 3: Update the project with the image URL
         const updateData = {
           images: [imageUrl],
         };
 
-        const updateResponse = await fetch(
-          `http://localhost:3000/projects/${projectId}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updateData),
-          }
-        );
-
-        const updatedProject = await updateResponse.json();
-        console.log(
-          "Project updated successfully with image URL:",
-          updatedProject
-        );
+        await fetch(`http://localhost:3000/projects/${projectId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        });
       }
 
       navigate("/admin");
@@ -100,27 +85,6 @@ function AddProjectPage() {
     }
   };
 
-  // Function to handle image upload to Digital Ocean
-  const uploadImageToDigitalOcean = async (file, projectId) => {
-    const formData = new FormData();
-    formData.append("images", file);
-
-    const response = await fetch(
-      `http://localhost:3000/projects/${projectId}/images`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Image upload failed");
-    }
-
-    const { imageUrl } = await response.json(); // Assuming the server responds with the image URL
-    return imageUrl;
-  };
-
   if (isLoading) return <Loading />;
 
   return (
@@ -129,6 +93,7 @@ function AddProjectPage() {
       handleInputChange={handleInputChange}
       handleImageChange={handleImageChange}
       handleAdd={handleAdd}
+      errors={errors}
     />
   );
 }

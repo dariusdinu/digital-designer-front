@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 import "./ProjectCard.css";
 
 function ProjectCard({ project, adminMode = false }) {
@@ -13,11 +14,13 @@ function ProjectCard({ project, adminMode = false }) {
 
   return (
     <div className="project-card" onClick={handleClick}>
-      <img
-        src={project.images || "/test-image.jpg"}
-        alt={`Project ${project.title}`}
-        className="project-image"
-      />
+      <LazyLoad offset={100} once>
+        <img
+          src={project.images || "/test-image.jpg"}
+          alt={`Project ${project.title}`}
+          className="project-image"
+        />
+      </LazyLoad>
     </div>
   );
 }

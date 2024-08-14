@@ -3,24 +3,25 @@ import "./TextArea.css";
 function TextArea({
   label,
   id,
-  htmlFor,
+  name,
   value,
   onChange,
   placeholder,
-  name,
-  rows,
+  hasError,
+  errorMessage,
 }) {
   return (
-    <div className="text-area">
-      <label htmlFor={htmlFor}>{label}</label>
+    <div className={`input ${hasError ? "input-error" : ""}`}>
+      <label htmlFor={id}>{label}</label>
       <textarea
         id={id}
-        rows={rows}
         name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-      ></textarea>
+        className={hasError ? "error" : ""}
+      />
+      {hasError && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }

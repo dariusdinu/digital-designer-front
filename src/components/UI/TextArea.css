@@ -13,7 +13,7 @@ textarea {
   border-bottom: 1.5px solid var(--primary-black);
   font-size: var(--font-size-xs);
   font-family: "Urbanist", sans-serif;
-  margin-bottom: 1.5rem;
+  height: 7rem;
 }
 
 textarea:focus {

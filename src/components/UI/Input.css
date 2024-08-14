@@ -25,3 +25,22 @@ input:focus {
   outline: none;
   border-bottom: 1.5px solid var(--primary-black);
 }
+
+.input.error input[type="text"],
+.input.error input[type="email"] {
+  border-bottom: 1.5px solid var(--primary-red);
+}
+
+.input.error label {
+  color: var(--primary-red);
+}
+
+.input-error input,
+.input-error textarea {
+  border-bottom: 1.5px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+}

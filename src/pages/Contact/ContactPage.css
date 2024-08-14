@@ -50,3 +50,9 @@ textarea {
   font-family: "Urbanist", sans-serif;
   resize: none;
 }
+
+.success-message {
+  color: var(--primary-black);
+  font-size: 1.6rem;
+  font-weight: 300;
+}

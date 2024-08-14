@@ -3,6 +3,7 @@ import "../../components/project/Portfolio.css";
 import Loading from "../../components/UI/Loading";
 import NavBar from "../../components/layout/NavBar";
 import Portfolio from "../../components/project/Portfolio";
+import Error from "../../components/UI/Error";
 
 function PortfolioPage() {
   const [allProjects, setAllProjects] = useState([]);
@@ -20,8 +21,9 @@ function PortfolioPage() {
         return response.json();
       })
       .then((data) => {
-        setAllProjects(data);
-        setFilteredProjects(data);
+        const visibleProjects = data.filter((project) => project.isShown);
+        setAllProjects(visibleProjects);
+        setFilteredProjects(visibleProjects);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -42,7 +44,7 @@ function PortfolioPage() {
   }, [selectedCategory, allProjects]);
 
   if (isLoading) return <Loading />;
-  if (error) return <p>Error fetching projects: {error}</p>;
+  if (error) return <Error message="Error fetching projects" />;
 
   return (
     <>

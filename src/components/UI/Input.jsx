@@ -5,23 +5,25 @@ function Input({
   type = "text",
   id,
   name,
-  isRequired,
   value,
   onChange,
   placeholder,
+  hasError,
+  errorMessage,
 }) {
   return (
-    <div className="input">
+    <div className={`input ${hasError ? "error" : ""}`}>
       <label htmlFor={id}>{label}</label>
       <input
         type={type}
         id={id}
         name={name}
-        required={isRequired}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        className={hasError ? "error" : ""}
       />
+      {hasError && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }

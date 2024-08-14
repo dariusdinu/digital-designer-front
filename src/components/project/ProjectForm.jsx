@@ -9,6 +9,8 @@ function ProjectForm({
   handleImageChange,
   handleInputChange,
   children,
+  onSubmit,
+  errors,
 }) {
   const categoryOptions = [
     { code: "logo", name: "Logo Design" },
@@ -17,14 +19,13 @@ function ProjectForm({
     { code: "advertising", name: "Digital Advertising" },
     { code: "newsletter", name: "Newsletters" },
   ];
-
   return (
     <>
       <ImagePicker
         image={project.images[0]}
         onImageChange={handleImageChange}
       />
-      <section className="project-info">
+      <form className="project-info" onSubmit={onSubmit}>
         <Input
           label="Title"
           id="title"
@@ -33,6 +34,8 @@ function ProjectForm({
           value={project.title}
           onChange={handleInputChange}
           placeholder="Enter project title"
+          hasError={errors.title}
+          errorMessage="Title is required"
         />
         <Input
           label="Client Website"
@@ -41,6 +44,8 @@ function ProjectForm({
           value={project.clientSiteLink}
           onChange={handleInputChange}
           placeholder="Enter client website URL"
+          hasError={errors.clientSiteLink}
+          errorMessage="Invalid URL"
         />
         <Select
           label="Category"
@@ -48,6 +53,7 @@ function ProjectForm({
           name="category"
           value={project.category}
           onChange={handleInputChange}
+          hasError={errors.category}
         />
         <TextArea
           label="Description"
@@ -55,6 +61,8 @@ function ProjectForm({
           value={project.description}
           onChange={handleInputChange}
           placeholder="Project Description"
+          hasError={errors.description}
+          errorMessage="Description is required"
         />
         <Switch
           handleInputChange={handleInputChange}
@@ -62,7 +70,7 @@ function ProjectForm({
           checked={project.isShown}
         />
         {children}
-      </section>
+      </form>
     </>
   );
 }

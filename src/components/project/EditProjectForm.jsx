@@ -1,10 +1,6 @@
 import Button from "../UI/Button";
-
-import "../UI/Button.css";
-import "./EditProjectForm.css";
-import "../../pages/Project/ProjectPage.css";
-import Loading from "../UI/Loading";
 import ProjectForm from "./ProjectForm";
+import "../UI/Button.css";
 
 function EditProjectForm({
   project,
@@ -12,15 +8,16 @@ function EditProjectForm({
   handleUpdate,
   handleDelete,
   handleImageChange,
+  errors,
 }) {
-  if (!project) return <Loading />;
-
   return (
     <div className="project-page">
       <ProjectForm
         project={project}
         handleImageChange={handleImageChange}
         handleInputChange={handleInputChange}
+        onSubmit={handleUpdate}
+        errors={errors}
       >
         <div className="buttons-container">
           <Button text="Update project" handler={handleUpdate} />
